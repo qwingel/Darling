@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">Darling</string>
+    <string name="login">Войти</string>
+    <string name="logout">Выйти</string>
+    <string name="signup">Зарегистрироваться</string>
+    <string name="forgotpassword">Забыли пароль?</string>
+    <string name="usernameoremail">Имя пользователя или почта</string>
+    <string name="password">Пароль</string>
+    <string name="noaccount">Нет аккаунта?</string>
+    <string name="vhodvaccount">Вход в аккаунт</string>
+    <string name="my_music">Моя музыка</string>
+    <string name="search">Поиск</string>
+    <string name="settings">Настройки</string>
+    <string name="toMsg">Чаты</string>
+    <string name="toMsc">Музыка</string>
+    <string name="messenger">Чаты</string>
+    <string name="profile">Имя</string>
+    <string name="music"><b>Музыка</b></string>
+    <string name="messages"><b>Сообщения</b></string>
+    <string name="type_to_search">Начните вводить название песни или артиста</string>
+    <string name="albums">Альбомы</string>
+    <string name="playlists">Плейлисты</string>
+    <string name="download_music">Скачанная музыка</string>
+    <string name="mixed_music">Перемешать музыку</string>
+    <string name="password_recovery">Восстановление пароля</string>
+    <string name="mail">Почта</string>
+    <string name="registration">Регистрация</string>
+    <string name="change_password">Сменить пароль</string>
+    <string name="account">Аккаунт</string>
+    <string name="press_to_change_email">Нажмите, чтобы сменить адрес почты</string>
+    <string name="name">Имя</string>
+    <string name="about_me">О себе</string>
+    <string name="username">koreanrating</string>
+    <string name="security">Безопасность</string>
+    <string name="notification">Уведомления</string>
+    <string name="extensions">Общие</string>
+    <string name="def_screen">Экран по умолчанию</string>
+    <string name="online_status">Показывать ли вашу активность</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

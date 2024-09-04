@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/bnm_switchToMsc"
+        android:title="@string/toMsc"
+        android:icon="@drawable/arrow_left"/>
+    <item
+        android:id="@+id/bnm_messages"
+        android:title="@string/messenger"
+        android:icon="@drawable/messages"/>
+    <item
+        android:id="@+id/bnm_profile"
+        android:title="@string/profile"
+        android:icon="@drawable/profile"/>
+</menu>

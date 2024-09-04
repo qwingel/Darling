@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/bnm_library"
+        android:title="@string/my_music"
+        android:icon="@drawable/music_library" />
+    <item
+        android:id="@+id/bnm_musicSearch"
+        android:title="@string/search"
+        android:icon="@drawable/search"/>
+    <item
+        android:id="@+id/bnm_switchToMsg"
+        android:title="@string/toMsg"
+        android:icon="@drawable/arrow_right"/>
+</menu>
