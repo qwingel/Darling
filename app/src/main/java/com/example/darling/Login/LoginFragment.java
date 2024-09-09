@@ -30,7 +30,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class LoginFragment extends Fragment {
     Button btn_login, btn_signup, btn_recovery;
     EditText et_login, et_password;
-    SharedPreferences sPref;
+    SharedPreferences sPref, ssPref;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -63,7 +63,10 @@ public class LoginFragment extends Fragment {
                         String description = response.body().description;
                         String photoUrl = response.body().photoUrl;
 
-                        sPref = getActivity().getSharedPreferences("settings", Context.MODE_PRIVATE);
+//                        Boolean isOnline = response.body().isOnline;
+//                        int screen = response.body().screen;
+
+                        sPref = getActivity().getSharedPreferences("account", Context.MODE_PRIVATE);
                         SharedPreferences.Editor edit = sPref.edit();
                         edit.putString("name", name);
                         edit.putString("username", username);
@@ -72,8 +75,15 @@ public class LoginFragment extends Fragment {
                         edit.putString("photo", photoUrl);
                         edit.apply();
 
+                        ssPref = getActivity().getSharedPreferences("settings", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = ssPref.edit();
+                        editor.putBoolean("isOnline", true);
+                        editor.putInt("screen", 0);
+                        editor.apply();
+
                         Intent intent = new Intent(getActivity().getApplicationContext(), MainActivity.class);
-                        startActivity(intent);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     }
                 }
             }
@@ -95,7 +105,7 @@ public class LoginFragment extends Fragment {
         et_password = view1.findViewById(R.id.et_password);
 
         btn_login.setOnClickListener(view -> {
-            responseLogin(et_login.getText().toString(), et_password.getText().toString());
+            responseLogin(et_login.getText().toString().replaceAll(" ", ""), et_password.getText().toString().replaceAll(" ", ""));
         });
 
         btn_signup.setOnClickListener(view ->{

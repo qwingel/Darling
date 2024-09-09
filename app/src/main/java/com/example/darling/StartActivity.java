@@ -12,7 +12,7 @@ public class StartActivity extends AppCompatActivity {
         super.onCreate(savedInstance);
         setContentView(R.layout.activity_start);
 
-        sPref_settings = getSharedPreferences("settings", MODE_PRIVATE);
+        sPref_settings = getSharedPreferences("account", MODE_PRIVATE);
         String username = sPref_settings.getString("username", null);
         Intent intent;
 
@@ -21,6 +21,8 @@ public class StartActivity extends AppCompatActivity {
         else
             intent = new Intent(getApplicationContext(), AuthActivity.class);
 
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
+        overridePendingTransition(R.anim.alpha0, R.anim.alpha100);
     }
 }

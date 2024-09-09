@@ -14,7 +14,7 @@
     <string name="toMsg">Чаты</string>
     <string name="toMsc">Музыка</string>
     <string name="messenger">Чаты</string>
-    <string name="profile">Имя</string>
+    <string name="profile">Я</string>
     <string name="music"><b>Музыка</b></string>
     <string name="messages"><b>Сообщения</b></string>
     <string name="type_to_search">Начните вводить название песни или артиста</string>
@@ -35,7 +35,9 @@
     <string name="notification">Уведомления</string>
     <string name="extensions">Общие</string>
     <string name="def_screen">Экран по умолчанию</string>
-    <string name="online_status">Показывать ли вашу активность</string>
+    <string name="online_status">Время в сети</string>
+    <string name="enter_new_mail">Введите новую почту</string>
+    <string name="mail_example">example@darling.ru</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

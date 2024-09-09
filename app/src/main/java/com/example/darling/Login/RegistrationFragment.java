@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,9 +19,13 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.example.darling.Helpers.Func;
 import com.example.darling.MainActivity;
 import com.example.darling.R;
 import com.example.darling.Helpers.RequestToServe;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -32,7 +37,7 @@ public class RegistrationFragment extends Fragment {
     Button btn_registration;
     LinearLayout ll_backToLogin;
     EditText et_email, et_username, et_password;
-    SharedPreferences sPref_settings;
+    SharedPreferences sPref, ssPref;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -58,8 +63,8 @@ public class RegistrationFragment extends Fragment {
                                 "Пользователь с такой почтой или логином уже существует",
                                 Toast.LENGTH_LONG).show();
                     else {
-                        sPref_settings = getActivity().getSharedPreferences("settings", Context.MODE_PRIVATE);
-                        SharedPreferences.Editor edit = sPref_settings.edit();
+                        sPref = getActivity().getSharedPreferences("account", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor edit = sPref.edit();
                         edit.putString("name", username);
                         edit.putString("username", username);
                         edit.putString("email", email);
@@ -67,7 +72,14 @@ public class RegistrationFragment extends Fragment {
                         edit.putString("photo", "ssilka");
                         edit.apply();
 
+                        ssPref = getActivity().getSharedPreferences("settings", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = ssPref.edit();
+                        editor.putBoolean("isOnline", true);
+                        editor.putInt("screen", 0);
+                        editor.apply();
+
                         Intent intent = new Intent(getActivity().getApplicationContext(), MainActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(intent);
                     }
                 }
@@ -91,8 +103,28 @@ public class RegistrationFragment extends Fragment {
         et_password = view1.findViewById(R.id.et_password);
 
         btn_registration.setOnClickListener(view -> {
-            responseRegister(et_email.getText().toString(),
-                    et_username.getText().toString(), et_password.getText().toString());
+            String sz_email = et_email.getText().toString();
+            String sz_username = et_username.getText().toString();
+            String sz_password = et_password.getText().toString().replaceAll(" ", "");
+            if(Func.isEmailValid(sz_email)){
+                if(Func.isUsernameValid(sz_username)){
+                    responseRegister(
+                            sz_email,
+                            sz_username,
+                            sz_password
+                    );
+                } else
+                    Toast.makeText(
+                            getContext(),
+                            "Имя пользователя должно содержать от 3 до 12 символов a-z, _, -",
+                            Toast.LENGTH_LONG
+                    ).show();
+            } else
+                Toast.makeText(
+                        getContext(),
+                        "Введите реальный адрес электронной почты",
+                        Toast.LENGTH_LONG
+                ).show();
         });
         ll_backToLogin.setOnClickListener(view -> {
             LoginFragment loginFragment = new LoginFragment();

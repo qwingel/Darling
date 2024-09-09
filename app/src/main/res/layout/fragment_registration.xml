@@ -113,6 +113,7 @@
                         android:textSize="13sp"
                         android:fontFamily="@font/montserrat_regular"
                         android:maxLines="1"
+                        android:inputType="text"
                         android:background="@android:color/transparent">
                     </EditText>
                     <LinearLayout
@@ -141,7 +142,8 @@
                         android:textSize="12sp"
                         android:textColorHint="@color/hint_font"
                         android:fontFamily="@font/montserrat_regular"
-                        android:maxLines="3"
+                        android:maxLines="1"
+                        android:inputType="text"
                         android:background="@android:color/transparent">
                     </EditText>
                     <LinearLayout

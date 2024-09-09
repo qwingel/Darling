@@ -9,7 +9,11 @@
         android:title="@string/search"
         android:icon="@drawable/search"/>
     <item
-        android:id="@+id/bnm_switchToMsg"
+        android:id="@+id/bnm_messages"
         android:title="@string/toMsg"
-        android:icon="@drawable/arrow_right"/>
+        android:icon="@drawable/messages"/>
+    <item
+        android:id="@+id/bnm_profile"
+        android:title="@string/profile"
+        android:icon="@drawable/profile"/>
 </menu>

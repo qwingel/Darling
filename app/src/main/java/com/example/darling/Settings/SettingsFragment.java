@@ -25,7 +25,7 @@ import com.example.darling.R;
 public class SettingsFragment extends Fragment {
     LinearLayout ll_extensions;
     FrameLayout fl_settings;
-    SharedPreferences sPref_settings;
+    SharedPreferences sPref;
     Button btn_logout;
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -41,15 +41,17 @@ public class SettingsFragment extends Fragment {
         });
 
         btn_logout.setOnClickListener(view1 -> {
-            sPref_settings = getActivity().getSharedPreferences("settings", MODE_PRIVATE);
-            SharedPreferences.Editor edit = sPref_settings.edit();
+            sPref = getActivity().getSharedPreferences("account", MODE_PRIVATE);
+            SharedPreferences.Editor edit = sPref.edit();
             edit.clear();
             edit.apply();
 
             SPref.setAllDataNull();
 
             Intent intent = new Intent(getActivity().getApplicationContext(), AuthActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
+            getActivity().overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         });
 
     }

@@ -1,9 +1,5 @@
 package com.example.darling.Helpers;
 
-import android.content.SharedPreferences;
-
-import com.google.android.material.navigation.NavigationView;
-
 public class SPref {
     private static String name;
     private static String username;
@@ -11,6 +7,8 @@ public class SPref {
     private static String email;
     private static String photo;
 
+    private static boolean isOnline = true;
+    private static int screen = 0;
 
     public static void setName(String name_){
         name = name_;
@@ -43,6 +41,10 @@ public class SPref {
     public static String getPhoto(){
         return photo;
     }
+    public static void setIsOnline(boolean isOnline_) { isOnline = isOnline_; }
+    public static boolean getIsOnline() { return isOnline; }
+    public static void setDefScreen(int screen_) { screen = screen_; }
+    public static int getDefScreen() { return screen; }
 
     public static void setAllDataNull(){
         setName("");
@@ -61,6 +63,16 @@ public class SPref {
     }
 
     public static String[] getAllData(){
-        return new String[]{getName(), getUsername(), getEmail(), getDescription(), getPhoto() };
+        return new String[]{ getName(), getUsername(), getEmail(), getDescription(), getPhoto() };
+    }
+
+    public static void setAllSettings(boolean isOnline_, int screen_){
+        setIsOnline(isOnline_);
+        setDefScreen(screen_);
+    }
+
+    public static void setAllSettingsDefault(){
+        setIsOnline(true);
+        setDefScreen(0);
     }
 }

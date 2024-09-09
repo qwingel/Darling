@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/black_main">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -21,34 +23,33 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="43">
+                android:layout_weight="40">
             </LinearLayout>
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="34"
+                android:layout_weight="54"
                 android:orientation="vertical">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="25">
+                    android:layout_weight="1">
                 </LinearLayout>
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/profile">
+                </ImageView>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="30"
-                    android:background="@drawable/online_status">
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="24">
+                    android:layout_weight="1">
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="12">
+                android:layout_weight="26">
             </LinearLayout>
             <TextView
                 android:layout_width="0dp"
@@ -65,28 +66,21 @@
                 android:layout_height="match_parent"
                 android:layout_weight="72"
                 android:orientation="vertical">
-                <LinearLayout
+                <Switch
+                    android:id="@+id/switchBtn_online"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1">
-                </LinearLayout>
-                <ToggleButton
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:switchMinWidth="40dp"
+                    android:track="@drawable/switch_track_main"
+                    android:thumb="@drawable/switch_main"
                     android:checked="true"
-                    android:background="@drawable/button_red">
-                </ToggleButton>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1">
-                </LinearLayout>
+                    tools:ignore="UseSwitchCompatOrMaterialXml">
+                </Switch>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="20">
+                android:layout_weight="30">
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
@@ -103,45 +97,60 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="45">
+                android:layout_weight="40">
             </LinearLayout>
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="30"
+                android:layout_weight="50"
                 android:orientation="vertical">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="29">
+                    android:layout_weight="1">
                 </LinearLayout>
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/def_screen">
+                </ImageView>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="30"
-                    android:background="@drawable/def_screen">
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="28">
+                    android:layout_weight="1">
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="14">
+                android:layout_weight="26">
             </LinearLayout>
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="502"
+                android:layout_weight="350"
                 android:text="@string/def_screen"
                 android:textColor="@color/white_font"
                 android:textSize="16sp"
                 android:fontFamily="@font/montserrat_regular"
                 android:gravity="center_vertical">
             </TextView>
+            <TextView
+                android:id="@+id/tv_screen"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="142"
+                android:text=""
+                android:textSize="14sp"
+                android:textColor="@color/white_font"
+                android:fontFamily="@font/montserrat_regular"
+                android:gravity="center">
+            </TextView>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="30">
+            </LinearLayout>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"

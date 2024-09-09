@@ -92,6 +92,7 @@
                         android:textColorHint="@color/hint_font"
                         android:fontFamily="@font/montserrat_regular"
                         android:maxLines="1"
+                        android:inputType="text"
                         android:background="@android:color/transparent">
                     </EditText>
                     <LinearLayout

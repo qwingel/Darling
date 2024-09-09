@@ -16,7 +16,6 @@ public class AuthActivity extends AppCompatActivity {
 
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.fl_login, loginFragment);
-        ft.addToBackStack(null);
         ft.commit();
     }
 }
